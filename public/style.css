@@ -1,0 +1,20 @@
+body{
+    position: relative;
+}
+.vidply {
+    position: absolute;
+    width: 100%;
+    height: 100vh; /* Use full height of the viewport */
+    overflow: hidden; /* Optional: Prevent any overflow */
+  }
+  
+  /* The video itself */
+  .vidply video {
+    position: absolute; /* Position absolutely within the container */
+    top: 0; /* Align the video to the top */
+    left: 0; /* Align the video to the left */
+    width: 100vw; /* 100% of the viewport width */
+    height: 100vh; /* 100% of the viewport height */
+    object-fit: cover; /* Ensure the video covers the whole screen without distortion */
+    z-index: -1; /* Put the video behind other content (optional) */
+  }
