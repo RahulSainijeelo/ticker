@@ -1,0 +1,164 @@
+.r {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  user-select: none;
+  transition: all 1s ease-in-out;
+}
+
+.r1s {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 98vh;
+  width: 500px;
+  border-radius: 19px;
+  border: 1px solid rgb(0, 128, 0,0.5);
+  box-shadow: 2px 0px 40px 2px rgba(0, 128, 0, 0.502);
+}
+
+.r2s {
+  height: 300px;
+  width: 100%;
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 83%);
+  opacity: 0;
+  z-index: -10000;
+  user-select: none;
+}
+
+.r2s img {
+  width: 100%;
+  height: 100% !important;
+  object-fit: cover;
+}
+
+.r3s {
+  position: absolute;
+  top: 160px;
+}
+
+.container {
+  position: relative;
+  width: 300px;
+  height: 250px;
+  background-color: transparent;
+}
+
+.triangle {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  clip-path: polygon(0 0, 0 100%, 100% 50%);
+  display: flex;
+  background-color: rgb(255, 0, 0, 0.5);
+  align-items: flex-end;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+}
+
+.circle {
+  position: absolute;
+  top: 95px; /* Adjust as needed */
+  left: 210px; /* Adjust as needed */
+  width: 70px;
+  height: 70px;
+  background-color: rgb(255, 0, 0, 0.8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  border: 2px solid white;
+}
+
+.r3sd {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  position: absolute;
+  right: 95px;
+  top: 85px;
+}
+
+.r3sd hr {
+  border: 1px solid white;
+  width: 180%;
+  margin: 0;
+}
+
+.text {
+  margin-top: 4px;
+  text-transform: uppercase;
+  font-size: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.year {
+  font-size: 34px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.r4s {
+  margin-top: 65px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 900px) {
+  .r1s {
+    width: 400px !important;
+  }
+  .r3s {
+    top: 160px;
+  }
+
+  .r1sevel {
+    width: 360px !important;
+  }
+}
+
+.rst {
+  position: absolute;
+  top: 80%;
+  z-index: 10;
+  background-color: rgb(0, 128, 0,0.3);
+  height: 40px;
+  width: 40px;
+  border-radius: 29%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid rgb(0, 128, 0,0.4);
+}
+
+.rst svg {
+  fill: rgb(255, 255, 255, 0.5);
+  height: 16px;
+  width: 16px;
+}
+
+.rst1 {
+  left: 10px;
+}
+
+.rst2 {
+  right: 10px;
+}
+
+.r1s1scr {
+  display: flex;
+  width: 100%;
+  position: absolute;
+  justify-content: center;
+  margin-top: 10px;
+}

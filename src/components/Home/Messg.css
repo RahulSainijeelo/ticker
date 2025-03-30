@@ -1,0 +1,64 @@
+.screen {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255, 0.2);
+  width: 90%;
+  height: 48px;
+  padding: 10px 27px 10px 0;
+  border: 1px solid rgb(0, 128, 0,0.5);
+  border-radius: 9px;
+  color: #00ffff;
+  overflow: hidden;
+  position: relative;
+}
+
+.scrtext{
+  overflow: hidden;
+  text-align: center;
+  margin-left: 28px;
+}
+
+.scredit{
+  position: absolute;
+  right: 3px;
+  top: 9px;
+  z-index: 1;
+}
+
+.scredit svg{
+  height: 25px;
+}
+
+.scr-text2 {
+  margin: 0;
+  font-family: cursive;
+  font-size: large;
+  text-align: center;
+}
+
+.scredt{
+  z-index: 8;
+  margin-left: 28px;
+  padding: 3px;
+}
+
+.scredt input{
+  z-index: 1;
+  width: 98%;
+  height:100%;
+  border: none;
+  background-color: transparent;
+  color: #00ffff;
+  font-size: large;
+}
+
+.scredt input:focus{
+  outline: none;
+}
+
+.backscreen{
+  position: absolute;
+  top: 11px;
+  left: 3px;
+  cursor: pointer;
+  /* display: none; */
+}

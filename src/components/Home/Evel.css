@@ -1,0 +1,94 @@
+.r1sevel {
+  width: 440px;
+  max-height: 50px;
+  padding: 9px 9px 9px 5px;
+  transition: max-height 0.6s ease-in;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-weight: 500;
+  font-size: 16px;
+  font-family: cursive;
+  color: #00FFFF;
+  border-radius: 10px;
+}
+
+.r1sevel.open {
+  max-height: 110px;
+  overflow: hidden;
+}
+
+.custom-content::-webkit-scrollbar {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+}
+
+.custom-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  height: 10px;
+}
+
+.custom-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.custom-summary {
+  cursor: pointer;
+  font-weight: bold;
+  user-select: none;
+}
+
+.custom-content {
+  margin-top: 10px;
+  padding-left: 10px;
+  width: 100%;
+  overflow-y:scroll;
+  position: relative;
+}
+
+.r1sevel p {
+  margin: 2px 0;
+}
+
+.r1sclr1 {
+  background-color: rgba(255, 99, 71, 0.2);
+  border: 1px solid rgba(255, 99, 71, 0.3);
+}
+
+.r1sclr2 {
+  background-color: rgba(255, 140, 0, 0.2);
+  border: 1px solid rgba(255, 140, 0, 0.3);
+}
+
+.r1sclr3 {
+  background-color: rgba(255, 223, 0, 0.2);
+  border: 1px solid rgba(255, 223, 0, 0.3);
+}
+
+.r1sclr4 {
+  background-color: rgba(34, 193, 195, 0.2);
+  border: 1px solid rgba(34, 193, 195, 0.3);
+}
+
+.scr-text-wrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  text-wrap: nowrap;
+}
+
+.evl-text {
+  display: inline-block;
+  animation: none;
+  text-align: center;
+  font-size: 16px;
+  position: relative;
+}
+

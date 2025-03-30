@@ -1,0 +1,308 @@
+/* === MODAL BACKDROP - NEON FUTURE THEME === */
+.gamemodal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* === MODAL BOX - SLEEK GLOW EFFECT === */
+.gamemodal-box {
+  background: rgba(10, 10, 10, 0.4);
+  padding: 10px;
+  border-radius: 12px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0px 0px 20px rgba(0, 255, 153, 0.6);
+  transition: all 0.3s ease-in-out;
+  backdrop-filter: blur(5px);
+  border: 2px solid rgba(0, 255, 153, 0.5);
+}
+
+/* === MODAL TITLE === */
+.gamemodal-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #00ffff;
+  font-family: "Orbitron", sans-serif;
+  text-transform: uppercase;
+  margin: 20px 0 15px 0;
+  letter-spacing: 1px;
+}
+
+/* === TIME SELECTION AREA === */
+.gamemodal-time {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+/* === LABELS & INPUTS - PROPERLY ALIGNED === */
+.gamemodal-time-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 10px;
+}
+
+.gamemodal-time-label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #00ff99;
+  text-transform: uppercase;
+  width: 80px;
+  text-align: left;
+}
+
+/* === TIME INPUT FIELDS === */
+.gamemodal-time-input {
+  width: 80px;
+  padding: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  background: transparent;
+  color: #00ffff;
+  border: 1.5px solid rgba(0, 255, 153, 0.8);
+  border-radius: 6px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.gamemodal-time-input:focus {
+  border-color: #00ffff;
+  box-shadow: 0px 0px 8px rgba(0, 255, 255, 0.8);
+}
+
+/* === BUTTON SECTION === */
+.gamemodal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 15px 0;
+}
+
+/* === BUTTON STYLES === */
+.gamemodal-btn {
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-family: "Orbitron", sans-serif;
+  text-transform: uppercase;
+  border: none;
+  outline: none;
+}
+
+/* === START BUTTON (ACTIVE) === */
+.confirm {
+  background: rgba(0, 255, 153, 0.5);
+  color: #00ff99;
+  box-shadow: 0px 0px 10px rgba(0, 255, 153, 0.5);
+}
+
+.confirm:hover {
+  background: rgba(0, 255, 153, 0.5);
+  box-shadow: 0px 0px 15px rgba(0, 255, 153, 0.8);
+}
+
+/* === DISABLED START BUTTON === */
+.confirm.disabled {
+  background: rgba(0, 255, 153, 0.1);
+  color: rgba(0, 255, 153, 0.3);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* === CANCEL BUTTON === */
+.cancel {
+  background: rgba(255, 0, 102, 0.4);
+  color: #ff0077;
+  box-shadow: 0px 0px 10px rgba(255, 0, 102, 0.56);
+}
+
+.cancel:hover {
+  background: rgba(255, 0, 102, 0.5);
+  box-shadow: 0px 0px 15px rgba(255, 0, 102, 0.9);
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 480px) {
+  .gamemodal-box {
+    width: 90%;
+    padding: 16px;
+  }
+
+  .gamemodal-time-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .gamemodal-time-input {
+    width: 100%;
+  }
+
+  .gamemodal-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* === FADE-IN EFFECT === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* this is it */
+/* === MODAL BACKDROP - DARK & IMMERSIVE === */
+.switchpro {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* === MODAL CONTAINER - SLEEK & FUTURISTIC === */
+.switchproa {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 16px;
+  border-radius: 12px;
+  width: 340px;
+  text-align: center;
+  box-shadow: 0px 0px 20px rgba(0, 255, 153, 0.5);
+  transition: all 0.3s ease-in-out;
+  backdrop-filter: blur(5px);
+}
+
+/* === NEON GLOW EFFECT ON HOVER === */
+.switchproa:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 0px 25px rgba(0, 255, 153, 0.8);
+}
+
+/* === GOAL BUTTONS - CLEAN, SLEEK DESIGN === */
+.switchproab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: #00ff99;
+  background: linear-gradient(90deg, rgba(0, 255, 153, 0.1), rgba(0, 255, 153, 0.2));
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* === SUBTLE ANIMATED BORDER EFFECT === */
+.switchproab::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 255, 153, 0.4);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* === HOVER EFFECT - SMOOTH GLOW === */
+.switchproab:hover {
+  background: rgba(0, 255, 153, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0px 0px 15px rgba(0, 255, 153, 0.6);
+}
+
+.switchproab:hover::before {
+  opacity: 1;
+}
+
+/* === ACTIVE CLICK EFFECT === */
+.switchproab:active {
+  transform: scale(0.95);
+}
+
+/* === CREATE NEW BUTTON - CYBER UI STYLE === */
+.tdmdlswitch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 255, 153, 0.1);
+  color: #00ff99;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 0px 12px rgba(0, 255, 153, 0.4);
+}
+
+/* === HOVER EFFECT === */
+.tdmdlswitch:hover {
+  background: rgba(0, 255, 153, 0.2);
+  box-shadow: 0px 0px 20px rgba(0, 255, 153, 0.7);
+}
+
+/* === PLUS ICON - MINIMAL, FUTURISTIC === */
+.tdmdlswitchplus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #00ff99;
+  color: black;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 8px;
+  box-shadow: 0px 0px 8px rgba(0, 255, 153, 0.6);
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 480px) {
+  .switchproa {
+    width: 90%;
+    padding: 14px;
+  }
+}
+
+/* === FADE-IN EFFECT === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

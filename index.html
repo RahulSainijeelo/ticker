@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.png" />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ticker</title>
+  </head>
+  <body>
+    <div class="vidply">
+      <video autoplay loop muted id="myVideo">
+        <source src="/videos/vid1.webm" type="video/webm" />
+      </video>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      const videoSource = document.getElementById("myVideo");
+      async function fetchVideos() {
+        try {
+          const response = await fetch("/videos/videos.json");
+          const videoFiles = await response.json();
+          const randomVideo =
+            videoFiles[Math.floor(Math.random() * videoFiles.length)];
+          const videoPath = `/videos/${randomVideo}`;
+          videoSource.src = videoPath;
+        } catch (error) {
+          console.error("Error loading video files:", error);
+        }
+      }
+
+      fetchVideos();
+      window.addEventListener('focus', () => {
+      videoSource.play();
+    });
+
+    window.addEventListener('blur', () => {
+      videoSource.pause();
+    });
+    </script>
+  </body>
+</html>
