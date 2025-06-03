@@ -1,12 +1,10 @@
-import React from 'react';
-
 const CheckMark = () => (
   <svg
     height="19px"
     version="1.1"
     id="Layer_1"
     viewBox="0 0 117.72 117.72"
-    style={{ enableBackground: 'new 0 0 117.72 117.72',position:"absolute",right:"6px" }}
+    style={{ enableBackground: 'new 0 0 117.72 117.72', position: "absolute", right: "6px" }}
   >
     <style type="text/css">
       {`

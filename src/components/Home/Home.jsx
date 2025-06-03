@@ -35,17 +35,7 @@ export default function Home() {
   return (
     <>
       <button
-        style={{
-          margin: "16px",
-          padding: "8px 16px",
-          fontWeight: "bold",
-          background: "#f5f5f5",
-          border: "1px solid #ccc",
-          borderRadius: "4px",
-          cursor: "pointer",
-          zIndex: 9999999,
-          position: "fixed",
-        }}
+        type="button"
         className="report-button"
         onClick={() => handleGeneratePDF(date)}
       >

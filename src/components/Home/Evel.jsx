@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, useMemo } from "react";
 import "./Evel.css";
 import { clr } from "../../utils/clr";
-import CheckMark from "./checkMark";
+import CheckMark from "./CheckMark";
 
 export default function Evel({ data }) {
   const [cls, setCls] = useState("");
@@ -60,10 +60,10 @@ export default function Evel({ data }) {
             return (
               <div key={index}>
                 <div className="scr-text-wrapper">
-                <p className="evl-text">
-                {startTime}/{endTime}_{duration.toFixed(2)} hrs{" "}
-                {goal ? ("~" + goal) : ""} <CheckMark/>
-                </p>
+                  <p className="evl-text">
+                    {startTime}/{endTime}_{duration.toFixed(2)} hrs{" "}
+                    {goal ? ("~" + goal) : ""} <CheckMark />
+                  </p>
                 </div>
               </div>
             );
