@@ -49,7 +49,7 @@ export default function Messg() {
     progress == 0 ? setPt(true) : setPt(false);
   }, []);
 
-  useEffect(()=>{
+  useEffect(() => {
     const handleKeyDown = (event) => {
       switch (event.key) {
         case "Enter": {
@@ -62,7 +62,7 @@ export default function Messg() {
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  },[tempInput])
+  }, [tempInput])
 
   const Msg = () => {
     return (
@@ -96,7 +96,7 @@ export default function Messg() {
   return (
     <div className="screen">
       {edit ? <Edt /> : <Msg />}
-      {pt && params && (
+      {params && (
         <div className="scredit">
           {edit == false ? (
             <div onClick={toggleEdit}>
