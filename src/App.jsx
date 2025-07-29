@@ -6,13 +6,23 @@ import Day from './components/Home/Day';
 import SignUpPage from './components/auth/SignUpPage';
 import SignInPage from './components/auth/SignInPage';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-
+import "./App.css"
+import { AuthenticateWithRedirectCallback } from '@clerk/clerk-react';
 function App() {
   return (
     <Routes>
       {/* Public Routes */}
       <Route path="/sign-up" element={<SignUpPage />} />
       <Route path="/sign-in" element={<SignInPage />} />
+      <Route
+        path="/sign-in/sso-callback"
+        element={
+          <AuthenticateWithRedirectCallback
+            signUpFallbackRedirectUrl="/sign-up"
+            signInFallbackRedirectUrl="/sign-in"
+          />
+        }
+      />
 
       {/* Protected Routes */}
       <Route

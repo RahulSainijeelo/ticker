@@ -1,18 +1,22 @@
 import { useAuth } from '@clerk/clerk-react';
 import { lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
+import Spinner from '../Home/Spinner';
 const SignUp = lazy(() => import('@clerk/clerk-react').then(mod => ({ default: mod.SignUp })));
 
 const SignUpPage = () => {
     const { isLoaded } = useAuth();
-
     if (!isLoaded) {
-        return <div>Loading...</div>;
+        return <div style={{
+            position: "absolute",
+            left: "50%",
+            top: "50%"
+        }}><Spinner /></div>;
     }
 
     return (
         <div className="sign-in-container">
-            <Suspense fallback={<div>Loading Sign In...</div>}></Suspense>
+            <Suspense fallback={<Spinner />}></Suspense>
             <SignUp routing="path" path="/sign-up" signInpUrl="/sign-in" />
             <Suspense />
 

@@ -14,6 +14,10 @@ if (!PUBLISHABLE_KEY) {
 ReactDOM.createRoot(document.getElementById("root")).render(
   <ClerkProvider
     publishableKey={PUBLISHABLE_KEY}
+    signInFallbackRedirectUrl="/sign-in"
+    signUpFallbackRedirectUrl="/sign-up"
+    signInForceRedirectUrl="/"
+    signUpForceRedirectUrl="/"
     appearance={{
       baseTheme: dark,
       elements: {

@@ -3,10 +3,12 @@ import { Navigate } from 'react-router-dom';
 
 const ProtectedRoute = ({ children }) => {
   const { isLoaded, isSignedIn } = useAuth();
-
   if (!isLoaded) {
-    // Optionally render loading state
-    return <div>Loading...</div>;
+    return <div style={{
+      position: "absolute",
+      left: "50%",
+      top: "50%"
+    }}><Spinner /></div>;
   }
 
   if (!isSignedIn) {
