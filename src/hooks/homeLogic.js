@@ -169,10 +169,11 @@ export const decreaseMonth = (date, today, setDate) => {
 };
 
 export const handleGeneratePDF = (date) => {
+  console.log(date);
+
   const streakData = JSON.parse(localStorage.getItem("streak") || "[]");
   const month = date.month() + 1;
   const year = date.year();
-
   // Find the streak entry for the current month and year
   const monthEntry = streakData.find(
     (entry) => entry.month === month && entry.year === year

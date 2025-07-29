@@ -35,7 +35,7 @@ export default function Home() {
   return (
     <>
 
-      <Profile />
+      <Profile date={date} />
       <div className="r">
         <div className="r1s">
           <HeaderSection

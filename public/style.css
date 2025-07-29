@@ -1,20 +1,48 @@
-body{
-    position: relative;
+body {
+  position: relative;
 }
 .vidply {
-    position: absolute;
-    width: 100%;
-    height: 100vh; /* Use full height of the viewport */
-    overflow: hidden; /* Optional: Prevent any overflow */
-  }
-  
-  /* The video itself */
-  .vidply video {
-    position: absolute; /* Position absolutely within the container */
-    top: 0; /* Align the video to the top */
-    left: 0; /* Align the video to the left */
-    width: 100vw; /* 100% of the viewport width */
-    height: 100vh; /* 100% of the viewport height */
-    object-fit: cover; /* Ensure the video covers the whole screen without distortion */
-    z-index: -1; /* Put the video behind other content (optional) */
-  }
+  position: absolute;
+  width: 100%;
+  height: 100vh; /* Use full height of the viewport */
+  overflow: hidden; /* Optional: Prevent any overflow */
+}
+
+/* The video itself */
+.vidply video {
+  position: absolute; /* Position absolutely within the container */
+  top: 0; /* Align the video to the top */
+  left: 0; /* Align the video to the left */
+  width: 100vw; /* 100% of the viewport width */
+  height: 100vh; /* 100% of the viewport height */
+  object-fit: cover; /* Ensure the video covers the whole screen without distortion */
+  z-index: -1; /* Put the video behind other content (optional) */
+}
+
+.video-controls {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  gap: 10px;
+}
+
+.control-btn {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.control-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.control-btn:active {
+  transform: scale(0.95);
+}

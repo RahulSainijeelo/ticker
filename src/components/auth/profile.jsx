@@ -4,7 +4,7 @@ import { Cross2Icon } from "@radix-ui/react-icons";
 import { handleGeneratePDF } from "../../hooks/homeLogic";
 import "./profile.css";
 
-const Profile = () => {
+const Profile = ({ date }) => {
   const { user, isLoaded } = useUser();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -50,7 +50,7 @@ const Profile = () => {
             <button
               type="button"
               className="report-button"
-              onClick={() => handleGeneratePDF()}
+              onClick={() => handleGeneratePDF(date)}
             >
               Generate Report
             </button>
