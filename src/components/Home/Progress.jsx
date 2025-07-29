@@ -33,7 +33,6 @@ export default function Progress() {
     handleCloseReset,
     forceReset,
   } = useProgressLogic();
-
   return (
     <>
       <div className="r4s1pros">

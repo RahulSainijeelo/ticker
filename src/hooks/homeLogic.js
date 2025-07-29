@@ -192,10 +192,22 @@ export const handleGeneratePDF = (date) => {
   if (monthEntry && monthEntry.days) {
     Object.entries(monthEntry.days).forEach(([day, sessions]) => {
       y += 5; // Add margin before each day
+
+      // Get day name (e.g., Sunday)
+      const dayMoment = date.clone().date(Number(day));
+      const dayName = dayMoment.format("dddd");
+
+      // Calculate total minutes for this day
+      const dayTotalMinutes = sessions.reduce(
+        (sum, session) => sum + Math.round((session[2] || 0) * 60),
+        0
+      );
+
       doc.setFont(undefined, "bold");
-      doc.text(`Day ${day}:`, 10, y);
+      doc.text(`Day ${day} (${dayName}):`, 10, y);
       y += 7;
       doc.setFont(undefined, "normal");
+
       sessions.forEach((session, idx) => {
         // session: [start, end, hours, goal?]
         const [start, end, hours, goal] = session;
@@ -212,6 +224,17 @@ export const handleGeneratePDF = (date) => {
           y = 20;
         }
       });
+
+      // Show total for the day
+      doc.setFont(undefined, "italic");
+      doc.text(
+        `Total: ${Math.floor(dayTotalMinutes / 60)}h ${dayTotalMinutes % 60}m`,
+        14,
+        y
+      );
+      doc.setFont(undefined, "normal");
+      y += 7;
+
       // Draw a line after each day
       doc.setDrawColor(200, 200, 200);
       doc.line(10, y, 200, y);
