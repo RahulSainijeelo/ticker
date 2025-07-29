@@ -1,5 +1,6 @@
 import { useAuth } from '@clerk/clerk-react';
 import { Navigate } from 'react-router-dom';
+import Spinner from '../Home/Spinner';
 
 const ProtectedRoute = ({ children }) => {
   const { isLoaded, isSignedIn } = useAuth();
