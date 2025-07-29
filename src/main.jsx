@@ -12,51 +12,51 @@ if (!PUBLISHABLE_KEY) {
 }
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <Router>
-    <ClerkProvider
-      publishableKey={PUBLISHABLE_KEY}
-      appearance={{
-        baseTheme: dark,
-        elements: {
-          card: {
-            background: 'rgba(20, 20, 20, 0.45)',
-            boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
-            backdropFilter: 'blur(16px) saturate(180%)',
-            border: '1px solid rgba(255, 255, 255, 0.15)',
-          },
-          headerTitle: {
-            fontWeight: '700',
-            fontSize: '2rem',
-            color: '#FFF',
+  <ClerkProvider
+    publishableKey={PUBLISHABLE_KEY}
+    appearance={{
+      baseTheme: dark,
+      elements: {
+        card: {
+          background: 'rgba(20, 20, 20, 0.45)',
+          boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+          backdropFilter: 'blur(16px) saturate(180%)',
+          border: '1px solid rgba(255, 255, 255, 0.15)',
+        },
+        headerTitle: {
+          fontWeight: '700',
+          fontSize: '2rem',
+          color: '#FFF',
 
-          },
-          formButtonPrimary: {
-            background: 'linear-gradient(90deg, #8a5cf680 0%, #22d3ee63 100%)',
-            color: '#FFF',
-            boxShadow: '0 4px 14px 0 rgba(139,92,246,0.39)',
-            borderRadius: '1rem',
-            fontSize: '1rem',
-            padding: '0.75rem 1.5rem',
-          },
-          formFieldInput: {
-            background: 'rgba(255,255,255,0.10)',
-            color: '#FFF',
-            borderRadius: '0.75rem',
-            border: '1px solid rgba(255,255,255,0.12)',
-            padding: '0.75rem 1rem',
-          },
-          variables: {
-            colorPrimary: '#8b5cf6',
-            colorBackground: 'transparent',
-            fontFamily: 'Inter, "Segoe UI", sans-serif'
-          },
-          footer: {
-            display: "none"
-          }
+        },
+        formButtonPrimary: {
+          background: 'linear-gradient(90deg, #8a5cf680 0%, #22d3ee63 100%)',
+          color: '#FFF',
+          boxShadow: '0 4px 14px 0 rgba(139,92,246,0.39)',
+          borderRadius: '1rem',
+          fontSize: '1rem',
+          padding: '0.75rem 1.5rem',
+        },
+        formFieldInput: {
+          background: 'rgba(255,255,255,0.10)',
+          color: '#FFF',
+          borderRadius: '0.75rem',
+          border: '1px solid rgba(255,255,255,0.12)',
+          padding: '0.75rem 1rem',
+        },
+        variables: {
+          colorPrimary: '#8b5cf6',
+          colorBackground: 'transparent',
+          fontFamily: 'Inter, "Segoe UI", sans-serif'
+        },
+        footer: {
+          display: "none"
         }
-      }}
-    >
+      }
+    }}
+  >
+    <Router>
       <App />
-    </ClerkProvider>
-  </Router >
+    </Router >
+  </ClerkProvider>
 );

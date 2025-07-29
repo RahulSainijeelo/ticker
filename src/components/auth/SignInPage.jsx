@@ -1,12 +1,13 @@
 import { useAuth } from '@clerk/clerk-react';
 import { lazy, Suspense } from 'react';
+import { Link } from 'react-router-dom';
 const SignIn = lazy(() => import('@clerk/clerk-react').then(mod => ({ default: mod.SignIn })));
 
 const SignInPage = () => {
-    const { isLoaded } = useAuth(); // isLoaded indicates Clerk auth state is ready
+    const { isLoaded } = useAuth();
 
     if (!isLoaded) {
-        return <div>Loading...</div>; // show loading while Clerk is initializing
+        return <div>Loading...</div>;
     }
 
     return (
@@ -18,7 +19,7 @@ const SignInPage = () => {
                 <p>
                     Don’t have an account?
                 </p>
-                <Link href="/sign-up">Sign up</Link>
+                <a href="/sign-up">Sign up</a>
             </div>
         </div>
 

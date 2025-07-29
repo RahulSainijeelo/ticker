@@ -1,0 +1,168 @@
+/* ProfileModal.css */
+.profile-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(36, 42, 54, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.profile-modal-card {
+  background: rgba(47, 54, 67, 0.95);
+  border-radius: clamp(1rem, 2vw, 1.6rem);
+  padding: clamp(1.5rem, 4vw, 2.4rem) clamp(1.2rem, 3vw, 3.5rem);
+  text-align: center;
+  color: #fff;
+  width: 100%;
+  max-width: min(90vw, 420px);
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: none;
+}
+
+.profile-modal-close-btn {
+  position: absolute;
+  top: clamp(0.5rem, 2vw, 1rem);
+  right: clamp(0.5rem, 2vw, 1rem);
+  color: rgba(255, 255, 255, 0.8);
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-modal-close-btn:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.profile-modal-avatar {
+  width: clamp(80px, 15vw, 96px);
+  height: clamp(80px, 15vw, 96px);
+  border-radius: 50%;
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
+  object-fit: cover;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 0 3px rgba(199, 203, 255, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.profile-modal-avatar:hover {
+  transform: scale(1.02);
+}
+
+.profile-modal-title {
+  margin: 0 0 clamp(0.5rem, 2vw, 1rem);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 4vw, 1.4rem);
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.profile-modal-email {
+  opacity: 0.8;
+  font-size: clamp(0.9rem, 3vw, 1rem);
+  margin-bottom: clamp(1.5rem, 4vw, 2rem);
+  word-break: break-word;
+}
+
+.report-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border: none;
+  border-radius: clamp(8px, 2vw, 12px);
+  padding: clamp(0.75rem, 3vw, 1rem) clamp(1.5rem, 5vw, 2.5rem);
+  font-weight: 600;
+  font-size: clamp(0.9rem, 3vw, 1rem);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  min-height: 44px; /* Touch-friendly minimum */
+}
+
+.report-button:hover {
+  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.report-button:active {
+  transform: translateY(0);
+}
+
+.profile-image-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  position: fixed;
+  right: clamp(0.75rem, 3vw, 1rem);
+  bottom: clamp(0.75rem, 3vw, 1rem);
+  z-index: 1000;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.profile-image-btn:hover {
+  transform: scale(1.05);
+}
+
+.profile-image-btn img {
+  width: clamp(48px, 10vw, 56px);
+  height: clamp(48px, 10vw, 56px);
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
+}
+
+.profile-image-btn img:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 0 3px rgba(102, 126, 234, 0.5);
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 480px) {
+  .profile-modal-overlay {
+    padding: 0.5rem;
+  }
+
+  .profile-modal-card {
+    min-height: auto;
+  }
+
+  .profile-modal-close-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 481px) and (max-width: 768px) {
+  .profile-modal-card {
+    max-width: 400px;
+  }
+}
+
+/* Desktop adjustments */
+@media (min-width: 769px) {
+  .profile-modal-card {
+    max-width: 420px;
+  }
+
+  .profile-modal-close-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+}

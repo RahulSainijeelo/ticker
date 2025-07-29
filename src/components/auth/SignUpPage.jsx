@@ -20,7 +20,7 @@ const SignUpPage = () => {
                 <p>
                     Don’t have an account?
                 </p>
-                <Link href="/sign-in">Sign In</Link>
+                <a href="/sign-in">Sign In</a>
             </div>
         </div>
     );

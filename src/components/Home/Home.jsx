@@ -10,8 +10,8 @@ import {
   increaseMonth,
   decreaseMonth,
   useHomeLogic,
-  handleGeneratePDF,
 } from "../../hooks/homeLogic";
+import Profile from "../auth/profile";
 
 export default function Home() {
   const {
@@ -34,13 +34,8 @@ export default function Home() {
 
   return (
     <>
-      <button
-        type="button"
-        className="report-button"
-        onClick={() => handleGeneratePDF(date)}
-      >
-        Report
-      </button>
+
+      <Profile />
       <div className="r">
         <div className="r1s">
           <HeaderSection

@@ -164,10 +164,7 @@
 }
 
 .report-button {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  margin: 0;
+  margin-top: 10px;
   padding: 14px 32px;
   font-weight: bold;
   font-size: 1.2rem;
@@ -177,29 +174,14 @@
   border-radius: 8px;
   cursor: pointer;
   z-index: 10;
-  box-shadow:
-    0 0 10px #0ff,
-    0 0 20px #0ff,
-    0 0 40px #0ff,
-    0 0 80px #0ff,
-    0 0 120px #0ff;
-  text-shadow:
-    0 0 5px #0ff,
-    0 0 10px #0ff,
-    0 0 20px #0ff;
+  box-shadow: 0 0 1px #0ff, 0 0 2px #0ff, 0 0 4px #0ff, 0 0 8px #0ff,
+    0 0 1px #0ff;
   transition: box-shadow 0.2s, color 0.2s;
 }
 
 .report-button:hover {
   color: #fff;
-  box-shadow:
-    0 0 20px #0ff,
-    0 0 40px #0ff,
-    0 0 80px #0ff,
-    0 0 160px #0ff,
-    0 0 240px #0ff;
-  text-shadow:
-    0 0 10px #0ff,
-    0 0 20px #0ff,
-    0 0 40px #0ff;
+  box-shadow: 0 0 4px #0ff, 0 0 8px #0ff, 0 0 12px #0ff, 0 0 16px #0ff,
+    0 0 20px #0ff;
+  text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #0ff;
 }
