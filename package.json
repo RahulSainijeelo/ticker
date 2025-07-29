@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@clerk/clerk-react": "^5.38.0",
+    "@clerk/themes": "^2.4.3",
     "@fullcalendar/react": "^6.1.15",
     "axios": "^1.7.3",
     "cors": "^2.8.5",
