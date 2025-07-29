@@ -12,8 +12,13 @@ import {
   useHomeLogic,
 } from "../../hooks/homeLogic";
 import Profile from "../auth/profile";
+import { useUser } from "@clerk/clerk-react";
+import Spinner from "./Spinner";
 
 export default function Home() {
+  const { user, isLoaded } = useUser();
+  if (!isLoaded) return <Spinner />;
+
   const {
     date,
     setDate,
@@ -27,10 +32,10 @@ export default function Home() {
     pollStreakData,
     increaseMonth,
     decreaseMonth,
+    user: user.primaryEmailAddress?.emailAddress
   });
-
   // PDF generation handler
-
+  console.log(user.primaryEmailAddress?.emailAddress)
 
   return (
     <>

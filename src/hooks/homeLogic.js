@@ -11,6 +11,7 @@ export function useHomeLogic({
   pollStreakData,
   increaseMonth,
   decreaseMonth,
+  user,
 }) {
   const { pathname: ky245 } = useLocation();
   const [searchParams] = useSearchParams();
@@ -26,8 +27,8 @@ export function useHomeLogic({
   removeNonMatchingObjects({ day: moment().format("YYYYMMDD") });
 
   useEffect(() => {
-    handleStreakAndGoal();
-  }, [handleStreakAndGoal]);
+    handleStreakAndGoal(user);
+  }, [handleStreakAndGoal, user]);
 
   useEffect(() => {
     setAllParams(Object.fromEntries([...searchParams]));
@@ -70,11 +71,12 @@ export function useHomeLogic({
 }
 
 // Fetch streak data from MongoDB Realm and store in localStorage
-export const fetchStreakData = async () => {
+export const fetchStreakData = async (usr) => {
   try {
     await loginAnonymous();
     const user = await getUser();
-    const result = await user.functions.getMonth();
+    const result = await user.functions.getMonth(usr);
+    console.log(result);
     localStorage.setItem("streak", JSON.stringify(result));
     return true;
   } catch (error) {
@@ -91,26 +93,26 @@ export const ensureGoal = () => {
 };
 
 // Ensure streak data is up-to-date and handle date logic
-export const handleStreakAndGoal = async () => {
+export const handleStreakAndGoal = async (user) => {
   const todayStr = moment().format("L");
   const storedDate = localStorage.getItem("date");
-
+  console.log(user);
   if (!storedDate) {
-    const ok = await fetchStreakData();
+    const ok = await fetchStreakData(user);
     if (ok) localStorage.setItem("date", todayStr);
     ensureGoal();
     return;
   }
 
   if (storedDate !== todayStr) {
-    const ok = await fetchStreakData();
+    const ok = await fetchStreakData(user);
     if (ok) localStorage.setItem("date", todayStr);
   }
 
   ensureGoal();
 
   if (localStorage.getItem("streak") == null) {
-    await fetchStreakData();
+    await fetchStreakData(user);
   }
 };
 
@@ -169,8 +171,6 @@ export const decreaseMonth = (date, today, setDate) => {
 };
 
 export const handleGeneratePDF = (date) => {
-  console.log(date);
-
   const streakData = JSON.parse(localStorage.getItem("streak") || "[]");
   const month = date.month() + 1;
   const year = date.year();

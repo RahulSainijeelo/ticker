@@ -5,7 +5,7 @@ import { useNavigate, useSearchParams, useLocation } from "react-router-dom";
 import { getFromLocalStorage, removeFromLocalStorage } from "../utils/getLocal";
 import { loginAnonymous } from "../utils/auth";
 
-export function useProgressLogic() {
+export function useProgressLogic({ user }) {
   const navigate = useNavigate();
   const sound = useRef(new Audio("/sounds/alarm1.mp3"));
   const [outerConditionMet, setOuterConditionMet] = useState(false);
@@ -196,6 +196,7 @@ export function useProgressLogic() {
       "goal"
     );
     let arg = {
+      user: user,
       month: moment().month() + 1,
       year: moment().year(),
       day: moment().date(),

@@ -11,8 +11,11 @@ import Upload from "./Upload";
 import Spinner from "./Spinner";
 import ResetIcon from "./ResetIcon";
 import { useProgressLogic } from "../../hooks/progressLogic";
+import { useUser } from "@clerk/clerk-react";
 
 export default function Progress() {
+  const { user, isLoaded } = useUser();
+  if (!isLoaded) return <Spinner />;
   const {
     pt,
     progress,
@@ -32,7 +35,7 @@ export default function Progress() {
     isResetOpen,
     handleCloseReset,
     forceReset,
-  } = useProgressLogic();
+  } = useProgressLogic({ user: user.primaryEmailAddress?.emailAddress });
   return (
     <>
       <div className="r4s1pros">
