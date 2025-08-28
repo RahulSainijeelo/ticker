@@ -5,7 +5,6 @@ const loginAnonymous = async () => {
     user = await app.logIn(Realm.Credentials.anonymous());
     return {user};
   } catch (err) {
-    console.log(err);
     return "something wrong";
   }
 };

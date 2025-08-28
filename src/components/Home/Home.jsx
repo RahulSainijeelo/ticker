@@ -34,9 +34,6 @@ export default function Home() {
     decreaseMonth,
     user: user.primaryEmailAddress?.emailAddress
   });
-  // PDF generation handler
-  console.log(user.primaryEmailAddress?.emailAddress)
-
   return (
     <>
 
