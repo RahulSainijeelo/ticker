@@ -76,11 +76,9 @@ export const fetchStreakData = async (usr) => {
     await loginAnonymous();
     const user = await getUser();
     const result = await user.functions.getMonth(usr);
-    console.log(result);
     localStorage.setItem("streak", JSON.stringify(result));
     return true;
   } catch (error) {
-    console.log("error while fetching");
     return false;
   }
 };
@@ -96,7 +94,6 @@ export const ensureGoal = () => {
 export const handleStreakAndGoal = async (user) => {
   const todayStr = moment().format("L");
   const storedDate = localStorage.getItem("date");
-  console.log(user);
   if (!storedDate) {
     const ok = await fetchStreakData(user);
     if (ok) localStorage.setItem("date", todayStr);

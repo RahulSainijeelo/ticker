@@ -23,10 +23,7 @@ function getDayArray(array, month, year, day) {
 
 // Example Usage
 const monthObj = getMonthObject(yearData, 10, 2024); // Get the object for October 2024
-console.log("Month Object:", monthObj);
 
 const dayArray = getDayArray(yearData, 10, 2024, 7); // Get the array for day 7 of October 2024
-console.log("Day Array:", dayArray);
 
 const invalidDay = getDayArray(yearData, 10, 2024, 15); // Invalid day
-console.log("Invalid Day:", invalidDay);

@@ -21,7 +21,6 @@ exports = async function (arg) {
         month;
       });
     });
-    console.log(dt);
     result = await collection.findOne({
       month: arg.month,
       year: arg.year,
@@ -52,7 +51,6 @@ exports = async function (arg) {
       return { res };
     }
   } catch (err) {
-    console.log("Error occurred while executing findOne:", err.message);
     return { error: err.message };
   }
 };
