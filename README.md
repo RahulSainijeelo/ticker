@@ -149,6 +149,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ***
 
-**Live Demo**: [ticker.iamsaini.space]
+**Live Demo**: [Ticker](ticker.iamsaini.space)
 
 **Note**: This application demonstrates advanced timer functionality, serverless architecture, and intelligent resource management - perfect for developers interested in productivity applications and modern web development practices.
