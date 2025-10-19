@@ -3,7 +3,6 @@ import moment from "moment";
 import momentsr from "moment-timezone";
 import { useNavigate, useSearchParams, useLocation } from "react-router-dom";
 import { getFromLocalStorage, removeFromLocalStorage } from "../utils/getLocal";
-import { loginAnonymous } from "../utils/auth";
 import { setDay } from "../services/setDurationService";
 
 export function useProgressLogic({ user }) {

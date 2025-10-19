@@ -1,5 +1,4 @@
 import moment from "moment";
-import { getUser, loginAnonymous } from "../utils/auth";
 import { getDayArray } from "../utils/findMonth";
 import { useEffect, useState } from "react";
 import { removeNonMatchingObjects } from "../utils/getLocal";
