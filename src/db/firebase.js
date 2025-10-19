@@ -1,26 +1,3 @@
-// import { cert, getApps, initializeApp } from "firebase-admin/app";
-// import { getFirestore } from "firebase-admin/firestore";
-
-// const privateKey = import.meta.env.VITE_FIREBASE_PRIVATE_KEY?.replace(/\\n/g, "\n");
-
-// const serviceAccount = {
-//   projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-//   clientEmail: import.meta.env.VITE_FIREBASE_CLIENT_EMAIL,
-//   privateKey,
-// };
-
-// let app;
-// if (!getApps().length) {
-//   app = initializeApp({
-//     credential: cert(serviceAccount),
-//     projectId: serviceAccount.projectId,
-//   });
-// } else {
-//   app = getApps()[0];
-// }
-
-// export const db = getFirestore(app);
-
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 

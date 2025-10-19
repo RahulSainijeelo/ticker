@@ -1,48 +1,45 @@
-// api/firebase-token.js
-import admin from 'firebase-admin';
+// src/components/FirebaseAuthProvider.jsx
+import { useEffect } from 'react';
+import { useAuth } from '@clerk/clerk-react';
+import { getAuth, signInWithCustomToken, signOut } from 'firebase/auth';
 
-// Initialize Firebase Admin
-const getFirebaseAdmin = () => {
-  if (!admin.apps.length) {
-    const serviceAccount = {
-      projectId: process.env.FIREBASE_PROJECT_ID,
-      clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-      privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+export function FirebaseAuthProvider({ children }) {
+  const { userId } = useAuth();
+  const firebaseAuth = getAuth();
+
+  useEffect(() => {
+    if (!userId) {
+      signOut(firebaseAuth);
+      return;
+    }
+
+    const syncFirebaseAuth = async () => {
+      try {
+        console.log("Requesting Firebase token...");
+        
+        // Call Vercel serverless function
+        const response = await fetch('/api/firebase-token', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ userId })
+        });
+
+        const data = await response.json();
+        
+        if (data.token) {
+          await signInWithCustomToken(firebaseAuth, data.token);
+          console.log("✅ Firebase authenticated!");
+          console.log("Firebase UID:", firebaseAuth.currentUser?.uid);
+        } else {
+          console.error("❌ No token:", data);
+        }
+      } catch (error) {
+        console.error("❌ Auth failed:", error);
+      }
     };
 
-    admin.initializeApp({
-      credential: admin.credential.cert(serviceAccount),
-    });
-  }
-  return admin;
-};
+    syncFirebaseAuth();
+  }, [userId, firebaseAuth]);
 
-export default async function handler(req, res) {
-  // CORS headers
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
-
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
-
-  const { userId } = req.body;
-
-  if (!userId) {
-    return res.status(400).json({ error: 'userId required' });
-  }
-
-  try {
-    const adminApp = getFirebaseAdmin();
-    const firebaseToken = await adminApp.auth().createCustomToken(userId);
-    return res.status(200).json({ token: firebaseToken });
-  } catch (error) {
-    console.error('Error:', error);
-    return res.status(500).json({ error: error.message });
-  }
+  return <>{children}</>;
 }
