@@ -16,8 +16,10 @@ export default function Evel({ data }) {
   const elapsedTime = useMemo(() => {
     if (!Array.isArray(data)) return 0;
     return data.reduce((sum, subArray) => {
-      if (Array.isArray(subArray) && subArray.length > 2) {
-        const duration = subArray[2];
+    console.log("checking if the data is an array",subArray)
+
+      if (subArray.duration) {
+        const duration = subArray.duration;
         return sum + (typeof duration === "number" ? duration : 0);
       }
       return sum;
@@ -55,8 +57,9 @@ export default function Evel({ data }) {
         ref={contentRef}
       >
         {data.map((item, index) => {
-          if (Array.isArray(item) && item.length >= 3) {
-            const [startTime, endTime, duration, goal] = item;
+          console.log(item.len)
+          if ( Object.keys(item).length>=3) {
+            const {startTime, endTime, duration, goal} = item;
             return (
               <div key={index}>
                 <div className="scr-text-wrapper">

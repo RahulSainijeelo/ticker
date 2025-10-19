@@ -26,7 +26,7 @@ export default function Day() {
     Reset,
     ResetConfirm,
   } = useDayLogic();
-
+  console.log("this is the day data",data)
   return (
     <div className="r1sday">
       <div className="switchday" onClick={handleSwitch}>

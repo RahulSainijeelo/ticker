@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './components/Home/Home';
 import Calendar from './components/Home/Calendar';
@@ -8,6 +8,7 @@ import SignInPage from './components/auth/SignInPage';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import "./App.css"
 import { AuthenticateWithRedirectCallback } from '@clerk/clerk-react';
+
 function App() {
   return (
     <Routes>

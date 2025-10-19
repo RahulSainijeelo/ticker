@@ -4,6 +4,7 @@ import momentsr from "moment-timezone";
 import { useNavigate, useSearchParams, useLocation } from "react-router-dom";
 import { getFromLocalStorage, removeFromLocalStorage } from "../utils/getLocal";
 import { loginAnonymous } from "../utils/auth";
+import { setDay } from "../services/setDurationService";
 
 export function useProgressLogic({ user }) {
   const navigate = useNavigate();
@@ -68,7 +69,7 @@ export function useProgressLogic({ user }) {
         const lselelee = Number(localStorage.getItem("elapsed"));
         const extra = Math.floor(
           momentsr.tz("Asia/Kolkata").valueOf() -
-            Number(localStorage.getItem("pause"))
+          Number(localStorage.getItem("pause"))
         );
         if (extra >= 1000) {
           localStorage.setItem("stamp", lselele + extra + 1000);
@@ -87,7 +88,7 @@ export function useProgressLogic({ user }) {
   useEffect(() => {
     if (outerConditionMet && isEnded) {
       sound.current.loop = true;
-      sound.current.play().catch(() => {});
+      sound.current.play().catch(() => { });
     }
   }, [outerConditionMet, isEnded]);
 
@@ -204,14 +205,9 @@ export function useProgressLogic({ user }) {
     };
     try {
       setStatus(1);
-      const { user } = await loginAnonymous();
-      if (!user) {
-        setTimeout(() => {
-          setStatus(0);
-        }, 3000);
-        return;
-      }
-      const result = await user.functions.setDay(arg);
+      const result = await setDay(arg);
+      console.log("inside upddbhdl", result)
+
       if (result) {
         removeFromLocalStorage(
           "startAt",
@@ -230,6 +226,7 @@ export function useProgressLogic({ user }) {
         setStatus(0);
       }
     } catch (err) {
+      console.log(err)
       setStatus(0);
     }
   };

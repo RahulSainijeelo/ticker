@@ -277,10 +277,10 @@
 } */
 
 /* Level 4 */
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap"); */
 
 .time-tracker {
-  cursor: url("https://cur.cursors-4u.net/cursors/cur-7/cur640.png"), auto;
+  /* cursor: url("https://cur.cursors-4u.net/cursors/cur-7/cur640.png"), auto; */
   padding: 16px 22px;
   border: 3px solid rgba(0, 255, 255, 0.9); /* Bright Cyan Border */
   border-radius: 16px;

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { removeNonMatchingObjects } from "../utils/getLocal";
 import { useSearchParams, useLocation } from "react-router-dom";
 import jsPDF from "jspdf";
-
+import {getMonth} from "../services/getMonthService"
 export function useHomeLogic({
   handleStreakAndGoal,
   pollStreakData,
@@ -70,12 +70,9 @@ export function useHomeLogic({
   };
 }
 
-// Fetch streak data from MongoDB Realm and store in localStorage
-export const fetchStreakData = async (usr) => {
+export const fetchStreakData = async (usr) => {  
   try {
-    await loginAnonymous();
-    const user = await getUser();
-    const result = await user.functions.getMonth(usr);
+    const result = await getMonth(usr);
     localStorage.setItem("streak", JSON.stringify(result));
     return true;
   } catch (error) {
@@ -83,17 +80,16 @@ export const fetchStreakData = async (usr) => {
   }
 };
 
-// Ensure goal exists in localStorage
 export const ensureGoal = () => {
   if (!localStorage.getItem("goal")) {
     localStorage.setItem("goal", "No Goal");
   }
 };
 
-// Ensure streak data is up-to-date and handle date logic
 export const handleStreakAndGoal = async (user) => {
   const todayStr = moment().format("L");
   const storedDate = localStorage.getItem("date");
+
   if (!storedDate) {
     const ok = await fetchStreakData(user);
     if (ok) localStorage.setItem("date", todayStr);
@@ -171,7 +167,6 @@ export const handleGeneratePDF = (date) => {
   const streakData = JSON.parse(localStorage.getItem("streak") || "[]");
   const month = date.month() + 1;
   const year = date.year();
-  // Find the streak entry for the current month and year
   const monthEntry = streakData.find(
     (entry) => entry.month === month && entry.year === year
   );
@@ -189,13 +184,10 @@ export const handleGeneratePDF = (date) => {
 
   if (monthEntry && monthEntry.days) {
     Object.entries(monthEntry.days).forEach(([day, sessions]) => {
-      y += 5; // Add margin before each day
-
-      // Get day name (e.g., Sunday)
+      y += 5;
       const dayMoment = date.clone().date(Number(day));
       const dayName = dayMoment.format("dddd");
 
-      // Calculate total minutes for this day
       const dayTotalMinutes = sessions.reduce(
         (sum, session) => sum + Math.round((session[2] || 0) * 60),
         0
@@ -207,7 +199,6 @@ export const handleGeneratePDF = (date) => {
       doc.setFont(undefined, "normal");
 
       sessions.forEach((session, idx) => {
-        // session: [start, end, hours, goal?]
         const [start, end, hours, goal] = session;
         const mins = Math.round((hours || 0) * 60);
         totalMinutes += mins;
@@ -223,7 +214,6 @@ export const handleGeneratePDF = (date) => {
         }
       });
 
-      // Show total for the day
       doc.setFont(undefined, "italic");
       doc.text(
         `Total: ${Math.floor(dayTotalMinutes / 60)}h ${dayTotalMinutes % 60}m`,
@@ -233,13 +223,11 @@ export const handleGeneratePDF = (date) => {
       doc.setFont(undefined, "normal");
       y += 7;
 
-      // Draw a line after each day
       doc.setDrawColor(200, 200, 200);
       doc.line(10, y, 200, y);
       y += 4;
     });
 
-    // Summary
     y += 8;
     doc.setFontSize(13);
     doc.setFont(undefined, "bold");

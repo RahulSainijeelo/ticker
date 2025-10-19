@@ -18,7 +18,6 @@ import Spinner from "./Spinner";
 export default function Home() {
   const { user, isLoaded } = useUser();
   if (!isLoaded) return <Spinner />;
-
   const {
     date,
     setDate,
