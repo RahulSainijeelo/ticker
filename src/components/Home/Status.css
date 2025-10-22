@@ -426,8 +426,11 @@
 
 @media (max-width: 991px) {
   .time-tracker {
-    position: absolute;
-    top: 55px;
+    top: 125px;
     right: 30px;
   }
+}
+@media (min-width: 991px){ 
+.status-selection-time-t{
+  position: absolute; right: 40px; top: 60px }
 }

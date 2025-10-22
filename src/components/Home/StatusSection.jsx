@@ -4,7 +4,7 @@ import Spinner from "./Spinner";
 
 export default function StatusSection({ status, data }) {
   return (
-    <div style={{ position: "absolute", right: "40px", top: "60px" }}>
+    <div className="status-selection-time-t">
       {status === 1 && (data.length > 0 ? <Status timeArray={data} /> : <Status />)}
       {status === 0 && <Spinner />}
     </div>
