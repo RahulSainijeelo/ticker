@@ -282,24 +282,23 @@
 .time-tracker {
   /* cursor: url("https://cur.cursors-4u.net/cursors/cur-7/cur640.png"), auto; */
   padding: 16px 22px;
-  border: 3px solid rgba(0, 255, 255, 0.9); /* Bright Cyan Border */
+  border: 3px solid rgba(0, 255, 255, 0.9);
+  /* Bright Cyan Border */
   border-radius: 16px;
-  background: linear-gradient(
-    135deg,
-    rgba(0, 255, 255, 0.3),
-    rgba(255, 0, 150, 0.3)
-  );
+  background: linear-gradient(135deg,
+      rgba(0, 255, 255, 0.3),
+      rgba(255, 0, 150, 0.3));
   color: #fff;
   text-align: center;
-  font-family: "Orbitron", sans-serif; /* Sci-fi digital font */
+  font-family: "Orbitron", sans-serif;
+  /* Sci-fi digital font */
   backdrop-filter: blur(15px);
   box-shadow: 0px 20px 50px rgba(0, 255, 255, 0.7);
   transition: transform 0.5s ease-in-out, box-shadow 0.4s ease-in-out,
     filter 0.3s ease-in-out;
 
   /* 🌌 3D Holographic Float Effect */
-  transform: perspective(1200px) rotateY(-15deg) rotateX(10deg)
-    translateY(-12px) scale(1.1);
+  transform: perspective(1200px) rotateY(-15deg) rotateX(10deg) translateY(-12px) scale(1.1);
   animation: floating 3s infinite ease-in-out,
     hyperspaceGlow 1.5s infinite alternate;
 }
@@ -361,13 +360,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: repeating-linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.05),
-    rgba(255, 255, 255, 0.02) 1px,
-    transparent 3px,
-    transparent 3px
-  );
+  background: repeating-linear-gradient(to bottom,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 3px,
+      transparent 3px);
   animation: scanlines 0.2s linear infinite;
   z-index: -1;
 }
@@ -424,4 +421,13 @@
 .r9sclr5 .milestone {
   color: #9900ff;
   text-shadow: 0 0 30px rgba(153, 0, 255, 1);
+}
+
+
+@media (max-width: 991px) {
+  .time-tracker {
+    position: absolute;
+    top: 50px;
+    left: 30px;
+  }
 }

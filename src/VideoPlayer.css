@@ -220,7 +220,8 @@ body {
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   .video-controls-card {
-    top: 20px;
+    position:fixed;
+    top: 35px;
     right: 20px;
     scale: 0.85;
   }
