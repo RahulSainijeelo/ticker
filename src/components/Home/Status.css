@@ -426,6 +426,7 @@
 
 @media (max-width: 991px) {
   .time-tracker {
+    position: absolute;
     top: 125px;
     right: 30px;
   }
