@@ -1,6 +1,5 @@
 import { db } from "../db/firebase";
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
-import { getAuth } from "firebase/auth";
 /**
  * Saves a day's progress in a month document
  * @param {Object} data - The data containing user, month, year, day number and achievement array
@@ -8,15 +7,6 @@ import { getAuth } from "firebase/auth";
  */
 export const setDay = async (data) => {
   try {
-
-    const auth = getAuth();
-    const userExist = auth.currentUser;
-
-    if (!userExist) {
-      console.error("Not authenticated");
-      return;
-    }
-
     const { user, month, year, day, achiev } = data;
 
     if (!user || !month || !year || !day || !achiev) {
