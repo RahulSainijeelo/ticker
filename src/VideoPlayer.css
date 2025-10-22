@@ -221,7 +221,7 @@ body {
 @media (max-width: 768px) {
   .video-controls-card {
     position:fixed;
-    top: 35px;
+    top: 45px;
     right: 20px;
     scale: 0.85;
   }
