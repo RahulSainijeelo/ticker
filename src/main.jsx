@@ -60,10 +60,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       }
     }}
   >
-    <FirebaseAuthProvider>
+
       <Router>
         <App />
       </Router >
-    </FirebaseAuthProvider>
   </ClerkProvider>
 );
