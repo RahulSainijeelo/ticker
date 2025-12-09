@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { removeNonMatchingObjects } from "../utils/getLocal";
 import { useSearchParams, useLocation } from "react-router-dom";
 import jsPDF from "jspdf";
-import {getMonth} from "../services/getMonthService"
+import { getMonth } from "../services/getMonthService"
 export function useHomeLogic({
   handleStreakAndGoal,
   pollStreakData,
@@ -69,7 +69,7 @@ export function useHomeLogic({
   };
 }
 
-export const fetchStreakData = async (usr) => {  
+export const fetchStreakData = async (usr) => {
   try {
     const result = await getMonth(usr);
     localStorage.setItem("streak", JSON.stringify(result));
@@ -188,7 +188,7 @@ export const handleGeneratePDF = (date) => {
       const dayName = dayMoment.format("dddd");
 
       const dayTotalMinutes = sessions.reduce(
-        (sum, session) => sum + Math.round((session[2] || 0) * 60),
+        (sum, session) => sum + Math.round((session.duration || 0) * 60),
         0
       );
 
@@ -198,7 +198,7 @@ export const handleGeneratePDF = (date) => {
       doc.setFont(undefined, "normal");
 
       sessions.forEach((session, idx) => {
-        const [start, end, hours, goal] = session;
+        const { startTime: start, endTime: end, duration: hours, goal } = session;
         const mins = Math.round((hours || 0) * 60);
         totalMinutes += mins;
         let line = `  ${start || "--"} - ${end || "--"} | ${Math.floor(
@@ -235,8 +235,7 @@ export const handleGeneratePDF = (date) => {
     doc.setFont(undefined, "normal");
     doc.setFontSize(12);
     doc.text(
-      `Total Completed Time: ${Math.floor(totalMinutes / 60)} hours ${
-        totalMinutes % 60
+      `Total Completed Time: ${Math.floor(totalMinutes / 60)} hours ${totalMinutes % 60
       } minutes`,
       14,
       y

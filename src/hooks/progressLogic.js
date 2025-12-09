@@ -59,6 +59,17 @@ export function useProgressLogic({ user }) {
           );
         }
         newProgress = ((elapsed * 1000) / duration) * 100;
+
+        if (newProgress >= 100) {
+          const extra = elapsed - time;
+          elapsed = time;
+          newProgress = 100;
+          const endAtTime =
+            momentsr.tz("Asia/Kolkata").valueOf() - extra * 1000;
+          localStorage.setItem("endAt", moment(endAtTime).format("HH:mm:ss"));
+          clearInterval(interval);
+        }
+
         localStorage.setItem("elapsed", elapsed);
         setProgress(newProgress);
         setElapsedTime(elapsed);
@@ -77,9 +88,6 @@ export function useProgressLogic({ user }) {
         }
       }
       const interval = setInterval(intervalCalb, updateInterval);
-      if (newProgress >= 100) {
-        clearInterval(interval);
-      }
       return () => clearInterval(interval);
     }
   }, [isPaused, duration, pautm]);
