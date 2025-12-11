@@ -2,7 +2,7 @@
 
 A comprehensive productivity web application that transforms how users track and manage their daily goals with gamified progress tracking and intelligent timer functionality.
 
-## 🚀 Features
+## Features
 
 ### Core Functionality
 - **Goal-Based Time Tracking**: Create, start, pause, and resume timers for individual goals
@@ -19,7 +19,7 @@ A comprehensive productivity web application that transforms how users track and
 - **Monthly Reports**: Detailed task breakdowns with total hours and time analytics
 - **Resource Optimization**: Smart background animations with auto-pause functionality
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Frontend**: React.js
 - **Database**: MongoDB Atlas
@@ -27,7 +27,7 @@ A comprehensive productivity web application that transforms how users track and
 - **Authentication**: Clerk
 - **Styling**: CSS3 with Animations
 
-## 🏗️ Architecture
+## Architecture
 
 This project uses a **serverless architecture** powered by MongoDB Atlas Realm, eliminating the need for a traditional backend server.
 
@@ -37,7 +37,7 @@ This project uses a **serverless architecture** powered by MongoDB Atlas Realm, 
 - **Intelligent Resource Management**: Background videos auto-pause when user is away
 - **Real-time Data Sync**: Seamless synchronization across user sessions
 
-## 🚧 Major Technical Challenges Solved
+## Major Technical Challenges Solved
 
 ### Timer Functionality
 The biggest technical challenge was implementing reliable timer functionality:
@@ -50,7 +50,7 @@ The biggest technical challenge was implementing reliable timer functionality:
 - Auto-pause video when user leaves the page
 - Automatic video reload on page refresh
 
-## 📦 Installation
+## Installation
 
 1. Clone the repository
 ```bash
@@ -86,7 +86,7 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-## 🎯 Usage
+## Usage
 
 1. **Sign Up/Login**: Authenticate using Clerk
 2. **Create Goals**: Set up your productivity goals with estimated completion times
@@ -96,11 +96,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the application.
 6. **Check Calendar**: Review daily progress with color-coded indicators
 7. **Generate Reports**: Create monthly reports with detailed analytics
 
-## 📱 Screenshots
-
-[Add screenshots of your application here]
-
-## 🔧 MongoDB Realm Functions
+## MongoDB Realm Functions
 
 The application uses several Realm functions for backend operations:
 - `createGoal`: Create new productivity goals
@@ -108,21 +104,21 @@ The application uses several Realm functions for backend operations:
 - `getGoalHistory`: Retrieve goal completion history
 - `generateMonthlyReport`: Create detailed monthly reports
 
-## 🎨 Performance Features
+## Performance Features
 
 - **Efficient Timer**: Continues running even when browser throttles inactive tabs
 - **Resource Management**: Background animations pause automatically
 - **Real-time Updates**: Instant progress synchronization
 - **Responsive Design**: Works seamlessly across desktop and mobile devices
 
-## 🚀 Deployment
+## Deployment
 
 The application can be deployed on:
 - Vercel (Recommended for Next.js)
 - Netlify
 - Any platform supporting React applications
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
@@ -134,13 +130,13 @@ The application can be deployed on:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👨💻 Author
+## Author
 
-**Your Name**
+**Rahul Saini**
 - GitHub: [@RahulSainijeelo](https://github.com/RahulSainijeelo)
 - LinkedIn: [ Rahul Saini](https://linkedin.com/in/r-rahul-s-saini)
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - MongoDB Atlas Realm for serverless backend capabilities
 - Clerk for seamless authentication
@@ -149,6 +145,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ***
 
-**Live Demo**: [Ticker](https://ticker.iamsaini.space)
+**Application**: [Ticker](https://ticker.iamsaini.space)
 
 **Note**: This application demonstrates advanced timer functionality, serverless architecture, and intelligent resource management - perfect for developers interested in productivity applications and modern web development practices.
